@@ -22,6 +22,7 @@ lib-cov
 coverage
 *.lcov
 
+
 # nyc test coverage
 .nyc_output
 
@@ -82,6 +83,9 @@ typings/
 .nuxt
 dist
 
+# Jest build
+__test__
+
 # Gatsby files
 .cache/
 # Comment in the public line in if your project uses Gatsby and *not* Next.js
@@ -102,3 +106,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+# dev helper
+checktext.ts
