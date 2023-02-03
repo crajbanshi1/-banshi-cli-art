@@ -11,12 +11,12 @@ const version = () => {
 
 const printart = (name: string, options: any) => {
     let n = new CharacterArt();
-    n.setColor(color[options.color]);
+    n.setColor(color[options.color] ?? color.reset);
     n.charPattern(name).render();
 }
 
 const format = (name: string, options: any) => {
-    console.log(color[options.color](name));
+    console.log((color[options.color] || color.reset)(name));
 }
 
 program

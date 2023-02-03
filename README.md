@@ -104,3 +104,19 @@ matrix(opt);
 
 ```
 
+## Command line
+
+Install global for command line tool
+```.ts
+npm i -g color-art
+```
+
+
+```.ts
+cli-art textart CLI
+
+// with color option
+
+cli-art textart CLI -c red
+
+```

@@ -97,7 +97,7 @@ export class CharacterArt {
      */
     setColor(color: string) {
         if (typeof color != 'function') {
-            throw Error("Must provide a function of ANCII color e.g. text.green")
+            throw Error("Must provide a function of ANCII color e.g. color.green")
         }
         this.colors = color;
     }

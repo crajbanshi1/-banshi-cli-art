@@ -18,8 +18,17 @@
 		"lint": "eslint src/*.ts --fix",
 		"xreinstall": "npx npm-force-resolutions"
 	},
-	"author": "Chanchal Rajbanshi",
-	"license": "",
+	"author": {
+		"name": "Chanchal Rajbanshi",
+		"email": "crajbanshi@gmail.com",
+		"url": "https://github.com/crajbanshi"
+	},
+	"license": "MIT",
+	"homepage": "https://github.com/crajbanshi/color-art#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/crajbanshi/color-art.git"
+	},
 	"jest": {
 		"testEnvironment": "node",
 		"roots": [
@@ -27,7 +36,7 @@
 		]
 	},
 	"bin": {
-		"clrtxt": "./dist/bin/index.js"
+		"cli-art": "./dist/bin/index.js"
 	},
 	"directories": {
 		"lib": "dist"
