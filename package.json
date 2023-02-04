@@ -1,6 +1,6 @@
 {
 	"name": "color-art",
-	"version": "1.0.0",
+	"version": "o.1.0",
 	"description": "Text formating tool for command prompt",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
