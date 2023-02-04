@@ -12,7 +12,8 @@ Target to build a lightwaight commandline module for colored commadline text out
 # install
 
 ```.ts
-npm i --save-dev color-art
+npm i --save-dev @banshi/text-art
+
 ```
 
 # Use
