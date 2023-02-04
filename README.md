@@ -1,6 +1,11 @@
 # color-art
 A simple cli output tool for node js. Command line colored text, word art, simple progress bar.
 
+![color-art](https://raw.githubusercontent.com/crajbanshi/color-art/main/assets/image/logo.png)
+
+# Demo
+![Demo](https://raw.githubusercontent.com/crajbanshi/color-art/main/assets/image/Screenshot%202023-02-03%20092129.png)
+
 # Project goal
 Target to build a lightwaight commandline module for colored commadline text output.
 
