@@ -1,6 +1,6 @@
 {
-  "name": "@banshi/text-art",
-  "version": "0.1.1",
+  "name": "@banshi/cli-art",
+  "version": "0.0.1",
   "description": "Text formating tool for command prompt",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,10 +20,10 @@
   },
   "author": "Chanchal Rajbanshi <crajbanshi@gmail.com> (https://github.com/crajbanshi)",
   "license": "MIT",
-  "homepage": "https://github.com/crajbanshi/color-art#readme",
+  "homepage": "https://github.com/crajbanshi/-banshi-cli-art#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crajbanshi/color-art.git"
+    "url": "git+https://github.com/crajbanshi/-banshi-cli-art.git"
   },
   "jest": {
     "testEnvironment": "node",

@@ -106,7 +106,7 @@ __test__
 
 # TernJS port file
 .tern-port
-
+.vscode
 
 # dev helper
 checktext.ts
