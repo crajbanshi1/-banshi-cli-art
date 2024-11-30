@@ -596,8 +596,9 @@ export class CharacterArt {
 
     // Function to print the pattern of 'U'
     private printCharU(n: number, i: number, half: number) {
-        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
-        if (i != 0 && i != this.height - 1)
+        this.fullString += this.spaceColor(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace);
+        if (i != this.height - 1)
             this.fullString += this.colors(this.fillchar);
         else
             this.fullString += this.spaceColor(this.charinSpace);
@@ -606,8 +607,7 @@ export class CharacterArt {
                 && j >= 0
                 && j < this.height - 1))
                 this.fullString += this.colors(this.fillchar);
-            else if (j == this.height - 1 && i != 0
-                && i != this.height - 1)
+            else if (j == this.height - 1 && i != this.height - 1)
                 this.fullString += this.colors(this.fillchar);
             else
                 this.fullString += this.spaceColor(this.charinSpace);
