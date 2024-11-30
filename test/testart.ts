@@ -19,15 +19,17 @@ console.log(color.green("\nI am a successfull message"));
 
 let chAr = new CharacterArt({ "color": color.green });
 
-chAr.setCharInSpace(chAr.getFillChar());
-chAr.setCharSpace(chAr.getFillChar());
+// chAr.setCharInSpace(chAr.getFillChar());
+// chAr.setCharSpace(chAr.getFillChar());
 
-chAr.setSpaceColor(color.green);
+// chAr.setSpaceColor(color.red);
 chAr.charPattern("Chanchal").render();
 
+// chAr.setSpaceColor(color.green);
 chAr.setColor(color.red);
-chAr.setSpaceColor(color.blue);
 
+// chAr.setCharInSpace(chAr.getFillChar());
+// chAr.setCharSpace(chAr.getFillChar());
 chAr.charPattern("Common Auth")
 
 chAr.render();

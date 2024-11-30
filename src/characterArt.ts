@@ -30,6 +30,16 @@ export class CharacterArt {
     private widthQ!: number;
     private spaceColor = color.reset;
 
+    private charG: any = Array(0);
+    private charK: any = Array(0);
+    private charM: any = Array(0);
+    private charN: any = Array(0);
+    private charO: any = Array(0);
+    private charQ: any = Array(0);
+    private charV: any = Array(0);
+    private charW: any = Array(0);
+    private charX: any = Array(0);
+
     /**
      * constructor
      * 
@@ -83,7 +93,7 @@ export class CharacterArt {
      * 
      * @param height 
      */
-    setHeight(height: number) {
+    public setHeight(height: number) {
         this.height = height;
     }
 
@@ -92,7 +102,7 @@ export class CharacterArt {
      * 
      * @returns 
      */
-    getHeight() {
+    public getHeight() {
         return this.height;
     }
 
@@ -101,7 +111,7 @@ export class CharacterArt {
      * 
      * @param color 
      */
-    setColor(color: string) {
+    public setColor(color: string) {
         if (typeof color != 'function') {
             throw Error("Must provide a function of ANCII color e.g. color.green")
         }
@@ -113,7 +123,7 @@ export class CharacterArt {
      * 
      * @returns 
      */
-    getColor() {
+    public getColor() {
         return this.colors;
     }
 
@@ -123,7 +133,7 @@ export class CharacterArt {
      * @param fchar 
      * 
      */
-    setFillChar(fchar: string) {
+    public setFillChar(fchar: string) {
         this.fillchar = fchar;
     }
 
@@ -132,7 +142,7 @@ export class CharacterArt {
      * 
      * @returns 
      */
-    getFillChar() {
+    public getFillChar() {
         return this.fillchar;
     }
 
@@ -141,7 +151,7 @@ export class CharacterArt {
      * 
      * @param schar 
      */
-    setCharSpace(schar: string | Uint8Array) {
+    public setCharSpace(schar: string | Uint8Array) {
         this.charSpace = schar;
     }
 
@@ -150,7 +160,7 @@ export class CharacterArt {
      * 
      * @returns 
      */
-    getCharSpace() {
+    public getCharSpace() {
         return this.charSpace;
     }
 
@@ -159,7 +169,7 @@ export class CharacterArt {
      * 
      * @param schar 
      */
-    setCharInSpace(schar: string | Uint8Array) {
+    public setCharInSpace(schar: string | Uint8Array) {
         this.charinSpace = schar;
     }
 
@@ -168,7 +178,7 @@ export class CharacterArt {
      * 
      * @returns 
      */
-    getCharInSpace() {
+    public getCharInSpace() {
         return this.charinSpace;
     }
 
@@ -176,10 +186,11 @@ export class CharacterArt {
      * 
      * @param color 
      */
-    setSpaceColor(color: string) {
+    public setSpaceColor(color: string) {
         if (typeof color != 'function') {
             throw Error("Must provide a function of ANCII color e.g. color.green")
         }
+
         this.spaceColor = color;
     }
 
@@ -188,7 +199,7 @@ export class CharacterArt {
      * 
      * @returns 
      */
-    getSpaceColor() {
+    public getSpaceColor() {
         return this.spaceColor;
     }
 
@@ -204,21 +215,21 @@ export class CharacterArt {
 
     // Function to print the pattern of 'A'
     private printCharA(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         for (let j = 0; j <= this.width; j++) {
             if (j == n || j == (this.width - n)
                 || (i == Math.floor(this.height / 2) && j > n
                     && j < (this.width - n)))
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
         }
 
     }
 
     // Function to print the pattern of 'B'
     private printCharB(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         this.fullString += this.colors(this.fillchar);
         for (let j = 0; j < this.width; j++) {
             if ((i == 0 || i == this.height - 1 || i == half)
@@ -229,25 +240,25 @@ export class CharacterArt {
                     || i == half))
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
         }
     }
 
     // Function to print the pattern of 'C'
     private printCharC(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         this.fullString += this.colors(this.fillchar);
         for (let j = 0; j < (this.height - 1); j++) {
             if (i == 0 || i == this.height - 1)
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
         }
     }
 
     // Function to print the pattern of 'D'
     private printCharD(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         this.fullString += this.colors(this.fillchar);
         for (let j = 0; j < this.height; j++) {
             if ((i == 0 || i == this.height - 1)
@@ -257,14 +268,14 @@ export class CharacterArt {
                 && i != this.height - 1)
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
 
         }
     }
 
     // Function to print the pattern of 'E'
     private printCharE(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         this.fullString += this.colors(this.fillchar);
         for (let j = 0; j < this.height; j++) {
             if ((i == 0 || i == this.height - 1)
@@ -272,38 +283,37 @@ export class CharacterArt {
                     && j <= Math.floor(this.height / 2)))
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
 
         }
     }
 
     // Function to print the pattern of 'F'
     private printCharF(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         this.fullString += this.colors(this.fillchar);
         for (let j = 0; j < this.height; j++) {
             if ((i == 0) || (i == parseInt(half.toString())
                 && j <= parseInt(half.toString())))
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
 
         }
     }
 
     // Function to print the pattern of 'G'
-    private charG: any = Array(0);
     private printCharG(n: number, i: number, half: number) {
         if (typeof this.charG[i] == 'string') {
             this.fullString += this.charG[i];
             return;
         }
-        this.charG[i] = this.colors(this.charSpace);
-        this.charG[i] += this.colors(this.charSpace);
+        this.charG[i] = this.spaceColor(this.charSpace);
+        this.charG[i] += this.spaceColor(this.charSpace);
         for (let j = 0; j < this.widthG; j++) {
             if ((i == 0 || i == this.height - 1)
                 && (j == 0 || j == this.widthG - 1)) {
-                this.charG[i] += this.colors(this.charinSpace);
+                this.charG[i] += this.spaceColor(this.charinSpace);
             }
             else if (j == 0)
                 this.charG[i] += this.colors(this.fillchar);
@@ -320,41 +330,41 @@ export class CharacterArt {
                 && j < this.widthG)
                 this.charG[i] += this.colors(this.fillchar);
             else
-                this.charG[i] += this.colors(this.charinSpace);
+                this.charG[i] += this.spaceColor(this.charinSpace);
         }
         this.fullString += this.charG[i];
     }
 
     // Function to print the pattern of 'H'
     private printCharH(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         this.fullString += this.colors(this.fillchar);
         for (let j = 0; j < this.height; j++) {
             if ((j == this.height - 1)
                 || (i == Math.floor(this.height / 2)))
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
         }
     }
 
     // Function to print the pattern of 'I'
     private printCharI(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         for (let j = 0; j < this.height; j++) {
             if (i == 0 || i == this.height - 1)
                 this.fullString += this.colors(this.fillchar);
             else if (j == Math.floor(this.height / 2))
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
 
         }
     }
 
     // Function to print the pattern of 'J'
     private printCharJ(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         for (let j = 0; j < this.height; j++) {
             if (i == this.height - 1 && (j > 0
                 && j < this.height - 1))
@@ -365,25 +375,24 @@ export class CharacterArt {
                     && j == 0 && i != this.height - 1))
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
         }
     }
 
     // Function to print the pattern of 'K'
-    private charK: any = Array(0);
     private printCharK(n: number, i: number, half: number) {
         if (typeof this.charK[i] == 'string') {
             this.fullString += this.charK[i];
             return;
         }
-        this.charK[i] = this.colors(this.charSpace);
-        this.charK[i] += this.colors(this.charSpace);
+        this.charK[i] = this.spaceColor(this.charSpace);
+        this.charK[i] += this.spaceColor(this.charSpace);
         this.charK[i] += this.colors(this.fillchar);
         for (let j = 0; j <= half; j++) {
             if (j == this.abs(this.dummyk))
                 this.charK[i] += this.colors(this.fillchar);
             else
-                this.charK[i] += this.colors(this.charinSpace);
+                this.charK[i] += this.spaceColor(this.charinSpace);
         }
         this.dummyk--;
         this.fullString += this.charK[i];
@@ -391,25 +400,24 @@ export class CharacterArt {
 
     // Function to print the pattern of 'L'
     private printCharL(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         this.fullString += this.colors(this.fillchar);
         for (let j = 0; j <= this.height; j++) {
             if (i == this.height - 1)
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
         }
     }
 
     // Function to print the pattern of 'M'
-    private charM: any = Array(0);
     private printCharM(n: number, i: number, half: number) {
         if (typeof this.charM[i] == 'string') {
             this.fullString += this.charM[i];
             return;
         }
-        this.charM[i] = this.colors(this.charSpace);
-        this.charM[i] += this.colors(this.charSpace);
+        this.charM[i] = this.spaceColor(this.charSpace);
+        this.charM[i] += this.spaceColor(this.charSpace);
         this.charM[i] += this.colors(this.fillchar);
         for (let j = 0; j <= this.height; j++) {
             if (j == this.height)
@@ -418,7 +426,7 @@ export class CharacterArt {
                 || j == this.height - this.counterM - 1)
                 this.charM[i] += this.colors(this.fillchar);
             else
-                this.charM[i] += this.colors(this.charinSpace);
+                this.charM[i] += this.spaceColor(this.charinSpace);
         }
         if (this.counterM == Math.floor(this.height / 2)) {
             this.counterM = -99999;
@@ -429,14 +437,13 @@ export class CharacterArt {
     }
 
     // Function to print the pattern of 'N'
-    private charN: any = Array(0);
     private printCharN(n: number, i: number, half: number) {
         if (typeof this.charN[i] == 'string') {
             this.fullString += this.charN[i];
             return;
         }
-        this.charN[i] = this.colors(this.charSpace);
-        this.charN[i] += this.colors(this.charSpace);
+        this.charN[i] = this.spaceColor(this.charSpace);
+        this.charN[i] += this.spaceColor(this.charSpace);
         this.charN[i] += this.colors(this.fillchar);
         for (let j = 0; j <= this.height; j++) {
             if (j == this.height)
@@ -444,7 +451,7 @@ export class CharacterArt {
             else if (j == this.counterN)
                 this.charN[i] += this.colors(this.fillchar);
             else
-                this.charN[i] += this.colors(this.charinSpace);
+                this.charN[i] += this.spaceColor(this.charinSpace);
         }
         this.counterN++;
         this.fullString += this.charN[i];
@@ -452,14 +459,13 @@ export class CharacterArt {
 
 
     // Function to print the pattern of 'O'
-    private charO: any = Array(0);
     private printCharO(n: number, i: number, half: number) {
         if (typeof this.charO[i] == 'string') {
             this.fullString += this.charO[i];
             return;
         }
-        this.charO[i] = this.colors(this.charSpace);
-        this.charO[i] += this.colors(this.charSpace);
+        this.charO[i] = this.spaceColor(this.charSpace);
+        this.charO[i] += this.spaceColor(this.charSpace);
         for (let j = 0; j <= this.widthO; j++) {
             if (j == this.widthO - this.abs(this.spaceO)
                 || j == this.abs(this.spaceO))
@@ -470,7 +476,7 @@ export class CharacterArt {
                 && j < this.widthO - this.abs(this.spaceO))
                 this.charO[i] += this.colors(this.fillchar);
             else
-                this.charO[i] += this.colors(this.charinSpace);
+                this.charO[i] += this.spaceColor(this.charinSpace);
         }
         if (this.line != n && this.spaceO != 0
             && i < Math.floor(this.height / 2)) {
@@ -487,7 +493,7 @@ export class CharacterArt {
 
     // Function to print the pattern of 'P'
     private printCharP(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         this.fullString += this.colors(this.fillchar);
         for (let j = 0; j < this.height; j++) {
             if ((i == 0 || i == Math.floor(this.height / 2))
@@ -497,19 +503,18 @@ export class CharacterArt {
                 && j == this.height - 1 && i != 0)
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
         }
     }
 
     // Function to print the pattern of 'Q'
-    private charQ: any = Array(0);
     private printCharQ(n: number, i: number, half: number) {
         if (typeof this.charQ[i] == 'string') {
             this.fullString += this.charQ[i];
             return;
         }
-        this.charQ[i] = this.colors(this.charSpace);
-        this.charQ[i] += this.colors(this.charSpace);
+        this.charQ[i] = this.spaceColor(this.charSpace);
+        this.charQ[i] += this.spaceColor(this.charSpace);
         for (let j = 0; j <= this.widthQ; j++) {
             if (j == this.widthQ - this.abs(this.spaceQ)
                 || j == this.abs(this.spaceQ)) {
@@ -522,12 +527,12 @@ export class CharacterArt {
                 this.charQ[i] += this.colors(this.fillchar);
             }
             else
-                this.charQ[i] += this.colors(this.charinSpace);
+                this.charQ[i] += this.spaceColor(this.charinSpace);
         }
         if (this.line != n && this.spaceQ != 0
             && i < Math.floor(this.height / 2)) {
             this.spaceQ--;
-            this.charQ[i] += this.colors(this.charinSpace);
+            this.charQ[i] += this.spaceColor(this.charinSpace);
             this.line = n;
         }
         else if (this.line != n && i >= (Math.floor(this.height / 2) + Math.floor(this.height / 5))) {
@@ -535,15 +540,15 @@ export class CharacterArt {
             this.charQ[i] += this.colors(this.fillchar);
             this.line = n;
         } else {
-            this.charQ[i] += this.colors(this.charinSpace);
+            this.charQ[i] += this.spaceColor(this.charinSpace);
         }
-        this.charQ[i] += this.colors(this.charinSpace);
+        this.charQ[i] += this.spaceColor(this.charinSpace);
         this.fullString += this.charQ[i];
     }
 
     // Function to print the pattern of 'R'
     private printCharR(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         this.fullString += this.colors(this.fillchar);
         for (let j = 0; j < this.width; j++) {
             if ((i == 0 || i == half)
@@ -553,13 +558,13 @@ export class CharacterArt {
                 && !(i == 0 || i == half))
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
         }
     }
 
     // Function to print the pattern of 'S'
     private printCharS(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         for (let j = 0; j < this.height; j++) {
             if ((i == 0 || i == Math.floor(this.height / 2)
                 || i == this.height - 1))
@@ -571,31 +576,31 @@ export class CharacterArt {
                 && j == this.height - 1)
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
         }
 
     }
 
     // Function to print the pattern of 'T'
     private printCharT(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         for (let j = 0; j < this.height; j++) {
             if (i == 0)
                 this.fullString += this.colors(this.fillchar);
             else if (j == Math.floor(this.height / 2))
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
         }
     }
 
     // Function to print the pattern of 'U'
     private printCharU(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         if (i != 0 && i != this.height - 1)
             this.fullString += this.colors(this.fillchar);
         else
-            this.fullString += this.colors(this.charinSpace);
+            this.fullString += this.spaceColor(this.charinSpace);
         for (let j = 0; j < this.height; j++) {
             if (((i == this.height - 1)
                 && j >= 0
@@ -605,39 +610,38 @@ export class CharacterArt {
                 && i != this.height - 1)
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
         }
     }
 
     // Function to print the pattern of 'V'
-    private charV: any = Array(0);
     private printCharV(n: number, i: number, half: number) {
         if (typeof this.charV[i] == 'string') {
             this.fullString += this.charV[i];
             return;
         }
-        this.charV[i] = this.colors(this.charSpace);
-        this.charV[i] += this.colors(this.charSpace);
+        this.charV[i] = this.spaceColor(this.charSpace);
+        this.charV[i] += this.spaceColor(this.charSpace);
         for (let j = 0; j <= this.width; j++) {
             if (j == this.counterV
                 || j == this.width - this.counterV - 1)
                 this.charV[i] += this.colors(this.fillchar);
             else
-                this.charV[i] += this.colors(this.charinSpace);
+                this.charV[i] += this.spaceColor(this.charinSpace);
         }
         this.counterV++;
         this.fullString += this.charV[i]
     }
 
     // Function to print the pattern of 'W'
-    private charW: any = Array(0);
+
     private printCharW(n: number, i: number, half: number) {
         if (typeof this.charW[i] == 'string') {
             this.fullString += this.charW[i];
             return;
         }
-        this.charW[i] = this.colors(this.charSpace);
-        this.charW[i] += this.colors(this.charSpace);
+        this.charW[i] = this.spaceColor(this.charSpace);
+        this.charW[i] += this.spaceColor(this.charSpace);
         this.charW[i] += this.colors(this.fillchar);
         for (let j = 0; j <= this.height; j++) {
             if (j == this.height)
@@ -647,7 +651,7 @@ export class CharacterArt {
                     || j == this.height - this.counterW - 1))
                 this.charW[i] += this.colors(this.fillchar);
             else
-                this.charW[i] += this.colors(this.charinSpace);
+                this.charW[i] += this.spaceColor(this.charinSpace);
         }
         if (i >= Math.floor(this.height / 2)) {
             this.counterW++;
@@ -656,21 +660,21 @@ export class CharacterArt {
     }
 
     // Function to print the pattern of 'X'
-    private charX: any = Array(0);
+
     private printCharX(n: number, i: number, half: number) {
         if (typeof this.charX[i] == 'string') {
             this.fullString += this.charX[i];
             return;
         }
-        this.charX[i] = this.colors(this.charSpace);
-        this.charX[i] += this.colors(this.charSpace);
+        this.charX[i] = this.spaceColor(this.charSpace);
+        this.charX[i] += this.spaceColor(this.charSpace);
 
         for (let j = 0; j <= this.height; j++) {
             if (j == this.counterX
                 || j == this.height - this.counterX)
                 this.charX[i] += this.colors(this.fillchar);
             else
-                this.charX[i] += this.colors(this.charinSpace);
+                this.charX[i] += this.spaceColor(this.charinSpace);
         }
         this.counterX++;
         this.fullString += this.charX[i];
@@ -678,15 +682,15 @@ export class CharacterArt {
 
     // Function to print the pattern of 'Y'
     private printCharY(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace);
-        this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace);
         for (let j = 0; j <= this.height; j++) {
             if (j == this.counterY
                 || j == this.height - this.counterY
                 && i <= parseInt(half.toString()))
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
         }
         if (i < parseInt(half.toString()))
             this.counterY++;
@@ -694,22 +698,22 @@ export class CharacterArt {
 
     // Function to print the pattern of 'Z'
     private printCharZ(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
 
         for (let j = 0; j < this.height; j++) {
             if (i == 0 || i == this.height - 1
                 || j == this.counterZ)
                 this.fullString += this.colors(this.fillchar);
             else
-                this.fullString += this.colors(this.charinSpace);
+                this.fullString += this.spaceColor(this.charinSpace);
         }
         this.counterZ--;
     }
 
     private printSpace(n: number, i: number, half: number) {
-        this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+        this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
         for (let j = 0; j < this.height; j++) {
-            this.fullString += this.colors(this.charinSpace);
+            this.fullString += this.spaceColor(this.charinSpace);
         }
     }
 
@@ -723,14 +727,12 @@ export class CharacterArt {
      * @param character 
      * @returns 
      */
-    charPattern(character: string) {
+    public charPattern(character: string) {
         this.reset();
         let chars = character.toUpperCase().split('');
         let n: number = Math.floor(this.width / 2), i: number, half: number = Math.floor(this.height / 2);
         this.dummyk = half;
         this.fullString += "\n";
-        this.setCharInSpace(this.spaceColor(this.getCharInSpace()));
-        this.setCharSpace(this.spaceColor(this.getCharSpace()));
 
         for (i = 0; i < this.height; i++) {
             chars.forEach(element => {
@@ -818,7 +820,7 @@ export class CharacterArt {
                         break;
                 }
             });
-            this.fullString += this.colors(this.charSpace); this.fullString += this.colors(this.charSpace);
+            this.fullString += this.spaceColor(this.charSpace); this.fullString += this.spaceColor(this.charSpace);
             this.fullString += ("\n");
             this.line = n;
             n--;
@@ -839,14 +841,14 @@ export class CharacterArt {
      * 
      * @returns 
      */
-    toString() {
+    public toString() {
         return this.fullString;
     }
 
     /**
      * Print to console and destroy
      */
-    render() {
+    public render() {
         process.stdout.write(this.toString());
         this.fullString = "";
     }
