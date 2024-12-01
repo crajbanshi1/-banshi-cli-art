@@ -18,12 +18,12 @@
     "lint": "eslint src/*.ts --fix",
     "xreinstall": "npx npm-force-resolutions"
   },
-  "author": "Chanchal Rajbanshi <crajbanshi@gmail.com> (https://github.com/crajbanshi)",
+  "author": "Chanchal Rajbanshi <crajbanshi@gmail.com> (https://github.com/crajbanshi1)",
   "license": "MIT",
-  "homepage": "https://github.com/crajbanshi/-banshi-cli-art#readme",
+  "homepage": "https://github.com/crajbanshi1/-banshi-cli-art#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/crajbanshi/-banshi-cli-art.git"
+    "url": "git+https://github.com/crajbanshi1/-banshi-cli-art.git"
   },
   "jest": {
     "testEnvironment": "node",
@@ -54,7 +54,7 @@
     "readline": "^1.3.0"
   },
   "bugs": {
-    "url": "https://github.com/crajbanshi/color-art/issues"
+    "url": "https://github.com/crajbanshi1/-banshi-cli-art/issues"
   },
   "keywords": [
     "cli",
