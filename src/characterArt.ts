@@ -846,10 +846,10 @@ export class CharacterArt {
                 || i == this.height - 1))
                 this.char[29][i] += this.colors(this.fillchar);
             else if (i < Math.floor(this.height / 2)
-                && j == 0)
+                && j == this.height - 1)
                 this.char[29][i] += this.colors(this.fillchar);
             else if (i > Math.floor(this.height / 2)
-                && j == this.height - 1)
+                && j == 0)
                 this.char[29][i] += this.colors(this.fillchar);
             else
                 this.char[29][i] += this.spaceColor(this.charinSpace);
@@ -868,11 +868,7 @@ export class CharacterArt {
             if ((i == 0 || i == Math.floor(this.height / 2)
                 || i == this.height - 1))
                 this.char[30][i] += this.colors(this.fillchar);
-            else if (i < Math.floor(this.height / 2)
-                && j == 0)
-                this.char[30][i] += this.colors(this.fillchar);
-            else if (i > Math.floor(this.height / 2)
-                && j == this.height - 1)
+            else if (j == this.height - 1)
                 this.char[30][i] += this.colors(this.fillchar);
             else
                 this.char[30][i] += this.spaceColor(this.charinSpace);
@@ -936,10 +932,17 @@ export class CharacterArt {
         } else
             this.char[33] = Array(0);
         this.char[33][i] = this.spaceColor(this.charSpace);
-        for (let j = 0; j <= this.width / 2 - 1; j++) {
-            if (i == 0)
+        for (let j = 0; j < Math.ceil(this.width / 2); j++) {
+            if ((j == 0 && i == 0) || (j == 0 && i == Math.ceil(this.height / 2) - 1) || (j == 0 && i == this.height - 1))
+                this.char[33][i] += this.spaceColor(this.charinSpace);
+            else if (j == 0 && i > 0 && i < Math.ceil(this.height)) {
                 this.char[33][i] += this.colors(this.fillchar);
-            else if (j == n)
+            } else if ((i == 0 || i == this.height - 1 || i == half)
+                && j < (Math.ceil(this.width / 2) - 1))
+                this.char[33][i] += this.colors(this.fillchar);
+            else if (j == (Math.ceil(this.width / 2) - 1)
+                && !(i == 0 || i == this.height - 1
+                    || i == half) && i > half)
                 this.char[33][i] += this.colors(this.fillchar);
             else
                 this.char[33][i] += this.spaceColor(this.charinSpace);
@@ -963,6 +966,60 @@ export class CharacterArt {
                 this.char[34][i] += this.spaceColor(this.charinSpace);
         }
         return this.char[34][i];
+    }
+
+    // Function to print the pattern of '8'
+    private printChar8(n: number, i: number, half: number) {
+        if (Array.isArray(this.char[35]) && typeof this.char[35][i] == 'string') {
+            return this.char[35][i];
+        } else
+            this.char[35] = Array(0);
+        this.char[35][i] = this.spaceColor(this.charSpace);
+
+        for (let j = 0; j < Math.ceil(this.width / 2); j++) {
+            if ((j == 0 && i == 0) || (j == 0 && i == Math.ceil(this.height / 2) - 1) || (j == 0 && i == this.height - 1))
+                this.char[35][i] += this.spaceColor(this.charinSpace);
+            else if (j == 0 && i > 0 && i < Math.ceil(this.height)) {
+                this.char[35][i] += this.colors(this.fillchar);
+            } else if ((i == 0 || i == this.height - 1 || i == half)
+                && j < (Math.ceil(this.width / 2) - 1))
+                this.char[35][i] += this.colors(this.fillchar);
+            else if (j == (Math.ceil(this.width / 2) - 1)
+                && !(i == 0 || i == this.height - 1
+                    || i == half))
+                this.char[35][i] += this.colors(this.fillchar);
+            else
+                this.char[35][i] += this.spaceColor(this.charinSpace);
+        }
+        return this.char[35][i];
+    }
+
+
+    // Function to print the pattern of '9'
+    private printChar9(n: number, i: number, half: number) {
+        if (Array.isArray(this.char[36]) && typeof this.char[36][i] == 'string') {
+            return this.char[36][i];
+        } else
+            this.char[36] = Array(0);
+        this.char[36][i] = this.spaceColor(this.charSpace);
+        // 
+
+        for (let j = 0; j < Math.ceil(this.width / 2); j++) {
+            if ((j == 0 && i == 0) || (j == 0 && i == Math.ceil(this.height / 2) - 1))
+                this.char[36][i] += this.spaceColor(this.charinSpace);
+            else if (j == 0 && i > 0 && i < Math.ceil(this.height / 2)) {
+                this.char[36][i] += this.colors(this.fillchar);
+            } else if ((i == 0 || i == this.height - 1 || i == half)
+                && j < (Math.ceil(this.width / 2) - 1) && j > 0)
+                this.char[36][i] += this.colors(this.fillchar);
+            else if (j == (Math.ceil(this.width / 2) - 1)
+                && !(i == 0 || i == this.height - 1
+                    || i == half))
+                this.char[36][i] += this.colors(this.fillchar);
+            else
+                this.char[36][i] += this.spaceColor(this.charinSpace);
+        }
+        return this.char[36][i];
     }
 
     private printSpace(n: number, i: number, half: number) {
@@ -1093,6 +1150,12 @@ export class CharacterArt {
                         break;
                     case '7':
                         this.fullString += this.printChar7(n, i, half);
+                        break
+                    case '8':
+                        this.fullString += this.printChar8(n, i, half);
+                        break
+                    case '9':
+                        this.fullString += this.printChar9(n, i, half);
                         break
                     case ' ':
                         this.printSpace(n, i, half);

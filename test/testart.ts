@@ -1,5 +1,5 @@
 import {
-    logPrint, progressBar, replaceLastLine, color, CharacterArt
+    logPrint, progressBar, replaceLastLine, color, CharacterArt, matrix
 } from '../src';
 
 
@@ -23,5 +23,5 @@ let chAr = new CharacterArt({ "color": color.green });
 // chAr.setCharInSpace("!")
 chAr.charPattern("abcdefghijk").render();
 chAr.setCharInSpace("!")
-chAr.charPattern("012345678").render();
+chAr.charPattern("0123456789").render();
 
