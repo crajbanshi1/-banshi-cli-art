@@ -27,22 +27,10 @@ export class CharacterArt {
     private fillchar: string | Uint8Array = "\u2588";
     private colors = color.reset;
     private fullString: string = "";
-    private line!: number;
     private widthQ!: number;
     private width0!: number;
     private spaceColor = color.reset;
-
     private char: any[] = [Array(36).fill(undefined)];
-    private charG: any = Array(0);
-    private charK: any = Array(0);
-    private charM: any = Array(0);
-    private charN: any = Array(0);
-    private charO: any = Array(0);
-    private charQ: any = Array(0);
-    private charV: any = Array(0);
-    private charW: any = Array(0);
-    private charX: any = Array(0);
-    private char0: any = Array(0);
 
     /**
      * constructor
@@ -83,8 +71,9 @@ export class CharacterArt {
         this.counterZ = this.height - 1;
         this.widthG = this.width;
 
-        this.spaceQ = this.spaceO = this.space0 = Math.floor(this.height / 3);
-
+        this.spaceO = Math.floor(this.height / 3);
+        this.spaceQ = Math.floor(this.height / 3);
+        this.space0 = Math.floor(this.height / 3);
         this.widthO = Math.floor(this.height / 2) + Math.floor(this.height / 5) + this.spaceO + this.spaceO;
         this.widthQ = Math.floor(this.height / 2) + Math.floor(this.height / 5) + this.spaceQ + this.spaceQ;
         this.width0 = Math.floor(this.height / 2) + Math.floor(this.height / 5) + this.space0 + this.space0;
@@ -523,14 +512,12 @@ export class CharacterArt {
             else
                 this.char[15][i] += this.spaceColor(this.charinSpace);
         }
-        if (this.line != n && this.spaceO != 0
+        if (this.spaceO != 0
             && i < Math.floor(this.height / 2)) {
             this.spaceO--;
-            this.line = n;
         }
-        else if (this.line != n && i >= (Math.floor(this.height / 2) + Math.floor(this.height / 5))) {
+        else if (i >= (Math.floor(this.height / 2) + Math.floor(this.height / 5))) {
             this.spaceO--;
-            this.line = n;
         }
 
         return this.char[15][i];
@@ -577,16 +564,16 @@ export class CharacterArt {
             else
                 this.char[17][i] += this.spaceColor(this.charinSpace);
         }
-        if (this.line != n && this.spaceQ != 0
+        if (this.spaceQ != 0
             && i < Math.floor(this.height / 2)) {
             this.spaceQ--;
             this.char[17][i] += this.spaceColor(this.charinSpace);
-            this.line = n;
+
         }
-        else if (this.line != n && i >= (Math.floor(this.height / 2) + Math.floor(this.height / 5))) {
+        else if (i >= (Math.floor(this.height / 2) + Math.floor(this.height / 5))) {
             this.spaceQ--;
             this.char[17][i] += this.colors(this.fillchar);
-            this.line = n;
+
         } else {
             this.char[17][i] += this.spaceColor(this.charinSpace);
         }
@@ -801,14 +788,12 @@ export class CharacterArt {
             else
                 this.char[27][i] += this.spaceColor(this.charinSpace);
         }
-        if (this.line != n && this.space0 != 0
+        if (this.space0 != 0
             && i < Math.floor(this.height / 2)) {
             this.space0--;
-            this.line = n;
         }
-        else if (this.line != n && i >= (Math.floor(this.height / 2) + Math.floor(this.height / 5))) {
+        else if (i >= (Math.floor(this.height / 2) + Math.floor(this.height / 5))) {
             this.space0--;
-            this.line = n;
         }
 
         return this.char[27][i];
@@ -1164,17 +1149,8 @@ export class CharacterArt {
             });
             this.fullString += this.spaceColor(this.charSpace);
             this.fullString += ("\n");
-            this.line = n;
-            n--;
         }
-        this.charG = [];
-        this.charM = [];
-        this.charN = [];
-        this.charO = [];
-        this.charQ = [];
-        this.charV = [];
-        this.charW = [];
-        this.charX = [];
+        this.char = [];
         return this;
     }
 
