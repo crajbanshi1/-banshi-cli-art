@@ -21,7 +21,7 @@ npm i --save-dev @banshi/cli-art
 ```.ts
 import {
     progressBar, replaceLastLine, color, CharacterArt
-} from 'color-art';
+} from '@banshi/cli-art';
 
 console.log(color.italic("testing"))
 console.log(color.strikethrough("strikeword"));
@@ -97,7 +97,7 @@ bgWhiteBright
 ## Art Matrix
 
 ```.ts
-import { matrix } from 'color-art';
+import { matrix } from '@banshi/cli-art';
 
 let opt = {
     "stringLenth": 55,
