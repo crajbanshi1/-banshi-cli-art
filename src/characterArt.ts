@@ -1149,6 +1149,7 @@ export class CharacterArt {
             });
             this.fullString += this.spaceColor(this.charSpace);
             this.fullString += ("\n");
+            n--;
         }
         this.char = [];
         return this;
