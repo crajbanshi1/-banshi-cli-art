@@ -20,7 +20,7 @@ console.log(color.green("\nI am a successfull message"));
 let chAr = new CharacterArt({ "color": color.green });
 
 // chAr.setHeight(12);
-chAr.setCharInSpace("!")
+// chAr.setCharInSpace("!")
 chAr.charPattern("abcdefghijk").render();
 chAr.setCharInSpace("!")
 chAr.charPattern("012345678").render();

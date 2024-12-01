@@ -433,8 +433,7 @@ export class CharacterArt {
             return this.char[11][i];
         } else
             this.char[11] = Array(0);
-        this.char[11][i] = this.spaceColor(this.charSpace);
-        this.char[11][i] += this.colors(this.fillchar);
+        this.char[11][i] = this.spaceColor(this.charSpace) + this.colors(this.fillchar);
         for (let j = 0; j <= half; j++) {
             if (j == this.abs(this.dummyk))
                 this.char[11][i] += this.colors(this.fillchar);
@@ -841,20 +840,21 @@ export class CharacterArt {
             return this.char[29][i];
         } else
             this.char[29] = Array(0);
-        this.fullString += this.spaceColor(this.charSpace);
+        this.char[29][i] = this.spaceColor(this.charSpace);
         for (let j = 0; j < this.height; j++) {
             if ((i == 0 || i == Math.floor(this.height / 2)
                 || i == this.height - 1))
-                this.fullString += this.colors(this.fillchar);
+                this.char[29][i] += this.colors(this.fillchar);
             else if (i < Math.floor(this.height / 2)
                 && j == 0)
-                this.fullString += this.colors(this.fillchar);
+                this.char[29][i] += this.colors(this.fillchar);
             else if (i > Math.floor(this.height / 2)
                 && j == this.height - 1)
-                this.fullString += this.colors(this.fillchar);
+                this.char[29][i] += this.colors(this.fillchar);
             else
-                this.fullString += this.spaceColor(this.charinSpace);
+                this.char[29][i] += this.spaceColor(this.charinSpace);
         }
+        return this.char[29][i];
     }
 
     // Function to print the pattern of '3'
@@ -863,20 +863,21 @@ export class CharacterArt {
             return this.char[30][i];
         } else
             this.char[30] = Array(0);
-        this.fullString += this.spaceColor(this.charSpace);
+        this.char[30][i] = this.spaceColor(this.charSpace);
         for (let j = 0; j < this.height; j++) {
             if ((i == 0 || i == Math.floor(this.height / 2)
                 || i == this.height - 1))
-                this.fullString += this.colors(this.fillchar);
+                this.char[30][i] += this.colors(this.fillchar);
             else if (i < Math.floor(this.height / 2)
                 && j == 0)
-                this.fullString += this.colors(this.fillchar);
+                this.char[30][i] += this.colors(this.fillchar);
             else if (i > Math.floor(this.height / 2)
                 && j == this.height - 1)
-                this.fullString += this.colors(this.fillchar);
+                this.char[30][i] += this.colors(this.fillchar);
             else
-                this.fullString += this.spaceColor(this.charinSpace);
+                this.char[30][i] += this.spaceColor(this.charinSpace);
         }
+        return this.char[30][i];
     }
 
     // Function to print the pattern of '4'
