@@ -1,6 +1,6 @@
 {
   "name": "@banshi/cli-art",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Text formating tool for command prompt",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,7 +16,8 @@
     "clean:outdir": "npx rimraf __test__ dist",
     "format": "prettier --check \"src/**/*.ts\" --write",
     "lint": "eslint src/*.ts --fix",
-    "xreinstall": "npx npm-force-resolutions"
+    "xreinstall": "npx npm-force-resolutions",
+    "prepublish": "npm run build"
   },
   "author": "Chanchal Rajbanshi <crajbanshi@gmail.com> (https://github.com/crajbanshi1)",
   "license": "MIT",
